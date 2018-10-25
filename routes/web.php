@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home/miPrimerRuta', function() {
-    return view('welcome');
-});
+Route::get('/actors', 'ActorsController@index');
+Route::get('/movies', 'MoviesController@index');
+Route::get('/movies/detail/{id}', 'MoviesController@show');
+Route::get('/actors/search', 'ActorsController@search');
+Route::get('/actors/result/{request}', 'ActorsController@result');
