@@ -8,16 +8,20 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     </head>
 
     <body>
-      <form class="" action="/actors/result" method="get">
-        <label for="">
-          <input type="text" name="actors" value="">
-        </label>
-        <button type="submit">Buscar</button>
-      </form>
 
+    <div class="">
+
+    <ul class="list-group list-group-flush">
+      @foreach ($result as $actor)
+        <li class="list-group-item">{{$actor->getFullName()}}</li>
+      @endforeach
+    </ul>
+
+    </div>
 
     </body>
+</html>

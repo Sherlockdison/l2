@@ -89,8 +89,13 @@ class ActorsController extends Controller
     {
         return view('actor.search');
     }
-    public function result($request)
+
+    public function result(Request $request)
     {
-        return view('actor.result', compact('result'));
+        $result = $request;
+          $result=Actor::where('first_name', 'LIKE', "%$request->actors%")
+            ->orwhere('last_name', 'LIKE', "%$request->actors%")->get();
+
+      return view('actor.result', compact('result'));
     }
 }
